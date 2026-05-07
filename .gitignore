@@ -17,13 +17,6 @@ train/exp*/
 train/swanlog/
 train/tensorboard/
 *.out
-*.slurm
-
-# Local project artifacts and contact images
-assets/wechat*.jpg
-*pip源*.pdf
-soulxpodcast/eval/data/custom_random_soul_runs_init/
-soulxpodcast/eval/ttsd_runs/
 
 
 # Distribution / packaging
@@ -75,6 +68,9 @@ cover/
 *.wav
 *.mp3
 *.m4a
+!demo/audio/*.wav
+!demo/audio/*.mp3
+!demo/audio/*.m4a
 
 # Translations
 *.mo
