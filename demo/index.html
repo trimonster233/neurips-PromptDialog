@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Anonymous demo page for a podcast-style dialogic speech generation system."
+    />
+    <title>Anonymous Podcast Speech Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Anonymous demo home">
+          <span class="brand-mark">AD</span>
+          <span>Anonymous Demo</span>
+        </a>
+        <div class="nav-links">
+          <a href="#overview">Overview</a>
+          <a href="#examples">Examples</a>
+          <a href="#interface">Interface</a>
+          <a href="#notes">Notes</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Anonymous Review Demo</p>
+            <h1 id="hero-title">
+              Towards realistic long-form podcasts with dialectal and
+              paralinguistic diversity
+            </h1>
+            <p class="hero-lede">
+              This page presents an anonymized demonstration of a speech
+              generation system for multi-turn, multi-speaker podcast dialogue.
+              It highlights cross-dialect generation, zero-shot speaker
+              conditioning, and controllable paralinguistic events.
+            </p>
+            <div class="hero-actions" aria-label="Page actions">
+              <a class="button primary" href="#examples">Review examples</a>
+              <a class="button secondary" href="#interface">Inspect inputs</a>
+            </div>
+          </div>
+
+          <div class="signal-panel" aria-label="System capabilities summary">
+            <div class="signal-header">
+              <span>Demo Scope</span>
+              <strong>Anonymous</strong>
+            </div>
+            <div class="signal-bars">
+              <div class="signal-row">
+                <span>Long-form dialogue</span>
+                <div class="meter" style="--value: 92%"></div>
+              </div>
+              <div class="signal-row">
+                <span>Dialect transfer</span>
+                <div class="meter" style="--value: 86%"></div>
+              </div>
+              <div class="signal-row">
+                <span>Paralinguistics</span>
+                <div class="meter" style="--value: 78%"></div>
+              </div>
+            </div>
+            <div class="tag-cloud" aria-label="Supported controls">
+              <span>Mandarin</span>
+              <span>English</span>
+              <span>Sichuanese</span>
+              <span>Cantonese</span>
+              <span>Henanese</span>
+              <span>&lt;|laughter|&gt;</span>
+              <span>&lt;|sigh|&gt;</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Overview</p>
+          <h2>What reviewers can evaluate</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">01</span>
+            <h3>Multi-speaker podcast synthesis</h3>
+            <p>
+              Scripts are written as alternating speaker turns, allowing the
+              generated audio to preserve podcast-like conversational flow.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">02</span>
+            <h3>Dialectal generation</h3>
+            <p>
+              The same prompt voices can be conditioned to produce Mandarin,
+              Sichuanese, Cantonese, and Henanese dialogue examples.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">03</span>
+            <h3>Paralinguistic controls</h3>
+            <p>
+              Inline control tags such as laughter and sighs are represented in
+              the input text for more expressive synthesized speech.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="examples" class="section examples-section">
+        <div class="section-heading">
+          <p class="eyebrow">Examples</p>
+          <h2>Anonymous audio samples</h2>
+          <p>
+            The current files under <code>demo/audio/</code> are short test
+            tones so the site can be opened and verified immediately. Replace
+            them with generated speech files using the same filenames.
+          </p>
+        </div>
+
+        <div class="example-layout">
+          <aside class="example-tabs" aria-label="Example selector">
+            <button class="tab-button active" type="button" data-example="mandarin">
+              Mandarin podcast
+            </button>
+            <button class="tab-button" type="button" data-example="sichuan">
+              Sichuanese transfer
+            </button>
+            <button class="tab-button" type="button" data-example="cantonese">
+              Cantonese transfer
+            </button>
+            <button class="tab-button" type="button" data-example="henan">
+              Henanese transfer
+            </button>
+          </aside>
+
+          <article class="example-view" aria-live="polite">
+            <div class="example-header">
+              <div>
+                <p class="eyebrow" id="example-kind">Zero-shot podcast</p>
+                <h3 id="example-title">Mandarin podcast dialogue</h3>
+              </div>
+              <span class="status-pill" id="example-status">Static sample</span>
+            </div>
+
+            <div class="audio-box">
+              <div>
+                <strong>Generated audio</strong>
+                <p id="audio-file">Expected file: demo/audio/mandarin-podcast.wav</p>
+              </div>
+              <audio id="example-audio" controls preload="none">
+                <source src="audio/mandarin-podcast.wav" type="audio/wav" />
+                Your browser does not support the audio element.
+              </audio>
+              <span class="audio-state" id="audio-state">Ready</span>
+            </div>
+
+            <div class="script-panel">
+              <div class="script-toolbar">
+                <strong>Input script</strong>
+                <button class="copy-button" type="button" id="copy-script">
+                  Copy script
+                </button>
+              </div>
+              <div id="script-lines" class="script-lines"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="interface" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Interface</p>
+          <h2>Reviewer-facing inference layout</h2>
+          <p>
+            The anonymous site mirrors the expected input contract without
+            exposing repository, organization, author, or contact information.
+          </p>
+        </div>
+
+        <div class="interface-grid">
+          <div class="mock-panel">
+            <div class="mock-header">
+              <span>Speaker conditioning</span>
+              <span>2 speakers</span>
+            </div>
+            <label>
+              Speaker 1 prompt text
+              <textarea readonly>喜欢攀岩、徒步、滑雪的语言爱好者，以及过两天要带着全部家当去景德镇做陶瓷的白日梦想家。</textarea>
+            </label>
+            <label>
+              Speaker 2 prompt text
+              <textarea readonly>呃，还有一个就是要跟大家纠正一点，就是我们在看电影的时候...</textarea>
+            </label>
+          </div>
+
+          <div class="mock-panel">
+            <div class="mock-header">
+              <span>Controls</span>
+              <span>Text tags</span>
+            </div>
+            <div class="control-list">
+              <span>&lt;|Sichuan|&gt;</span>
+              <span>&lt;|Yue|&gt;</span>
+              <span>&lt;|Henan|&gt;</span>
+              <span>&lt;|laughter|&gt;</span>
+              <span>&lt;|sigh|&gt;</span>
+              <span>&lt;|breathing|&gt;</span>
+            </div>
+          </div>
+
+          <div class="mock-panel wide">
+            <div class="mock-header">
+              <span>Dialogue input</span>
+              <span>[S1] / [S2]</span>
+            </div>
+            <pre id="compact-script">[S1] 哈喽，AI时代的冲浪先锋们！
+[S2] 哎，大家好呀！
+[S1] 最近活得特别赛博朋克哈！&lt;|sigh|&gt;
+[S2] 那我们今天就聊聊AI是怎么走进生活的。</pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="notes" class="section notes">
+        <div class="section-heading">
+          <p class="eyebrow">Review Notes</p>
+          <h2>Anonymization checklist</h2>
+        </div>
+        <ul class="check-list">
+          <li>No author names, affiliations, emails, QR codes, or personal links are shown.</li>
+          <li>No public repository, organization, model-hosting, or paper links are embedded.</li>
+          <li>Local assets are referenced with relative paths so the directory can be zipped or statically hosted.</li>
+          <li>Generated audio can be added without changing page code by keeping the expected filenames.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Anonymous supplementary demo for peer review.</span>
+      <span>Prepared as a static website.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
